@@ -2,52 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Video Background</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Video</title>
   <style>
-    /* Fullscreen video */
-    #bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+    /* Make video fill the screen */
+    body, html {
+      margin: 0;
+      padding: 0;
       height: 100%;
-      object-fit: cover;
-      z-index: -1;
+      overflow: hidden;
     }
 
-    /* Foreground content */
+    video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+
     .content {
       position: relative;
       z-index: 1;
       color: white;
-      font-family: Arial, sans-serif;
       text-align: center;
-      margin-top: 20%;
-      background: rgba(0,0,0,0.4); /* makes text readable */
-      display: inline-block;
-      padding: 20px;
-      border-radius: 10px;
+      top: 40%;
+      font-size: 2rem;
     }
   </style>
 </head>
 <body>
-
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline id="bg-video">
-    <!-- Option 1: Use external video (works immediately) -->
-    <source src="https://cdn.pixabay.com/video/2017/06/06/10821-219089567_large.mp4" type="video/mp4">
-    
-    <!-- Option 2: If you upload your own video to repo -->
-    <!-- <source src="your-video.mp4" type="video/mp4"> -->
-
-    Your browser does not support the video tag.
+  <!-- Background video -->
+  <video autoplay muted loop playsinline>
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
   </video>
 
-  <!-- Foreground content -->
+  <!-- Page content -->
   <div class="content">
-    <h1>Background Video on GitHub Pages 🎬</h1>
-    <p>This text stays on top of the video.</p>
+    <h1>Welcome to My Page</h1>
+    <p>This is over a background video</p>
   </div>
-
 </body>
 </html>
